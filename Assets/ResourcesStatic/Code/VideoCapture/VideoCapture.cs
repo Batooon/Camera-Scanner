@@ -28,9 +28,9 @@ namespace Code.VideoCapture
             if (_capture.TryInitializeCamera() == false)
                 return;
             
-            AdjustOutputTexture();
-
             _outputTexture = _capture.GetCameraOutput();
+            
+            AdjustOutputTexture();
             _videoOutput.texture = _outputTexture;
         }
 
