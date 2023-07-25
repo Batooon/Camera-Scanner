@@ -19,6 +19,7 @@ namespace Code.VideoCapture
         public WebCamTexture GetCameraOutput()
         {
             _rearCamera.Play();
+            Debug.Log(_rearCamera);
             return _rearCamera;
         }
 
@@ -60,7 +61,10 @@ namespace Code.VideoCapture
             foreach (var cameraDevice in devices)
             {
                 if (cameraDevice.isFrontFacing == false)
+                {
+                    Debug.Log("rear camera found");
                     _rearCamera = new WebCamTexture();
+                }
             }
 
             if (_rearCamera == null)
